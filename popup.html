@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="jquery-3.7.1.js"></script>
+    <script src="dayjs.min.js"></script>
+  </head>
+  <body>
+    <div class="weather-app">
+      <header class="header">
+        <h1>한줄일기</h1>
+        <div>
+          <img class="weather-icon" src="" alt="" />
+          <span class="weather">흐림 23C</span>
+        </div>
+      </header>
+      <main class="main-content">
+        <ul class="diary-list"></ul>
+      </main>
+      <button class="add-btn">+</button>
+      <!-- 클래스명 add-btn 으로 수정 -->
+      <dialog id="modal">
+        <form method="dialog">
+          <textarea placeholder="오늘의 한줄일기를 기록하세요"></textarea>
+          <menu>
+            <button type="submit">저장</button>
+          </menu>
+        </form>
+      </dialog>
+    </div>
+    <script src="content.js"></script>
+  </body>
+</html>

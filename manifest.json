@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "위치기반 날씨 메모 앱(작업용)",
+  "version": "1.0.0",
+  "description": "위치기반 날씨 메모 앱(작업용)",
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["jquery-3.7.1.js", "dayjs.min.js", "content.js"]
+    }
+  ],
+  "permissions": ["geolocation", "storage"],
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "위치 기록"
+  }
+}

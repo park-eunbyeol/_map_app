@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  width: 320px;
+  height: 480px;
+}
+.weather-app {
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+.header h1 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.header img {
+  width: 30px;
+  height: 30px;
+  opacity: 0.8;
+}
+.header img:hover {
+  opacity: 1;
+}
+
+/* 메인화면 */
+main {
+  padding: 16px;
+  flex: 1;
+}
+.main-content ul {
+  list-style: none;
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+.main-content li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+}
+.main-content p {
+  font-size: 14px;
+  color: black;
+  flex: 1;
+  line-height: 1.5;
+}
+.main-content button {
+  background: red;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.add-btn {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(135deg, #667eea);
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  border: none;
+}
+dialog {
+  border: none;
+  border-radius: 16px;
+  padding: 24px;
+  width: 300px;
+  min-width: 90vw;
+  background: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+dialog::backdrop {
+  background: rgb(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
