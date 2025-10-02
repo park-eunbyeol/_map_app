@@ -149,30 +149,44 @@ const options = {
   maximumAge: 0,
 };
 
-function success(pos) {
+async function success(pos) {
   const crd = pos.coords;
 
   let latitude = crd.latitude;
   let longitude = crd.longitude;
   let apikey = "8db55fc21a695d9d1bc4a050faaa8af9";
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric&lang=kr`
-  )
-    .then((response) => {
-      console.log(response);
-      return response.json();
-    })
-    .then((date) => {
-      console.log(date);
-      const weather = date.weather[0].description;
-      const icon = date.weather[0].icon;
-      const imageUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
-      console.log(weather);
-      const temp = Math.round(date.main.temp);
-      console.log(temp);
-      $(".weather").text(`${weather} ${temp}℃`);
-      $(".weather-icon").attr("src", imageUrl);
-    });
+  try {
+    const response = await fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apikey}&units=metric&lang=kr`
+    );
+    const data = await response.json();
+    const weather = data.weather[0].description;
+    const icon = data.weather[0].icon;
+    const imageUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+    console.log(weather);
+    const temp = Math.round(date.main.temp);
+    console.log(temp);
+    $(".weather").text(`${weather} ${temp}℃`);
+    $(".weather-icon").attr("src", imageUrl);
+  } catch (error) {
+    console.log(error.message);
+  }
+
+  // .then((response) => {
+  //   console.log(response);
+  //   return response.json();
+  // })
+  // .then((date) => {
+  //   console.log(date);
+  //   const weather = date.weather[0].description;
+  //   const icon = date.weather[0].icon;
+  //   const imageUrl = `https://openweathermap.org/img/wn/${icon}@2x.png`;
+  //   console.log(weather);
+  //   const temp = Math.round(date.main.temp);
+  //   console.log(temp);
+  //   $(".weather").text(`${weather} ${temp}℃`);
+  //   $(".weather-icon").attr("src", imageUrl);
+  // });
 
   console.log("Your current position is:");
   console.log(`Latitude : ${crd.latitude}`);
